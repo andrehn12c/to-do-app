@@ -110,4 +110,27 @@ main {
     padding: 1 rem 1.25 rem;
     display: flex;
     justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--info-text-color);
+    align-items: center;
+    margin-left: 1rem;
 }
+
+.informacoes a,.botoes a{
+    text-decoration: none;
+    color: var(--info-text-color);
+    padding: 1rem;
+    justify-content: center;
+}
+
+.botoes{
+    padding-block: 0.0025rem;
+    background: var(--bg-tarefas);
+    border-radius: 0.3125rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    font-size: 0.875rem;
+}
+
