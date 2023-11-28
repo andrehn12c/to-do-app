@@ -75,6 +75,10 @@ app.post('/descompletar', (requisicao, resposta) => {
     })
 })
 
+app.get('/ativas', (requisicao, resposta) => {
+    
+})
+
 app.get(`/`, (requisicao, resposta) => {
     const sql = 'SELECT * FROM tarefas'
 
