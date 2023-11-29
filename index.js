@@ -18,6 +18,25 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+app.post('/excluir', (requisicao, resposta) => {
+    const id = requisicao.body.id;
+    const referer = requisicao.get('referer'); // Captura a URL referente à requisição
+
+    const sql = `
+        DELETE FROM tarefas
+        WHERE id = ${id}
+    `;
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro);
+        }
+
+        resposta.redirect(referer); // Redireciona de volta para a URL de referência
+    });
+});
+
+
 //rotas
 app.post('/completar', (requisicao, resposta) => {
     const id = requisicao.body.id
