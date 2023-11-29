@@ -18,9 +18,21 @@ app.use(express.urlencoded({
 
 app.use(express.json())
 
+app.get('/limpartarefas', (requisicao, resposta) => {
+    const sql = `DELETE FROM tarefas`
+
+    conexao.query(sql, (erro) => {
+        if (erro) {
+            return console.log(erro)
+        }
+
+        resposta.redirect('/')
+    })
+})
+
 app.post('/excluir', (requisicao, resposta) => {
     const id = requisicao.body.id;
-    const referer = requisicao.get('referer'); // Captura a URL referente à requisição
+    const referer = requisicao.get('referer'); 
 
     const sql = `
         DELETE FROM tarefas
@@ -32,7 +44,7 @@ app.post('/excluir', (requisicao, resposta) => {
             return console.log(erro);
         }
 
-        resposta.redirect(referer); // Redireciona de volta para a URL de referência
+        resposta.redirect(referer); 
     });
 });
 
